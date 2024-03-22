@@ -1,0 +1,33 @@
+﻿@page "/"
+@using BookLibrary.Application.Dtos
+
+<PageTitle>Book Search</PageTitle>
+
+<RadzenDataGrid Data="@Books"
+                TItem="BookDto" 
+                @bind-Value=@BooksSelected
+                Render="@OnRender"
+                AllowFiltering="true"
+                AllowAlternatingRows="false"
+                FilterMode="FilterMode.Simple"
+                PagerHorizontalAlign="HorizontalAlign.Left"
+                LogicalFilterOperator="LogicalFilterOperator.And"
+                FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                PageSize="5"
+                ShowPagingSummary="true"
+                SelectionMode="DataGridSelectionMode.Single"
+                AllowMultiColumnSorting="true" 
+                ShowMultiColumnSortingIndex="true" 
+                AllowPaging="true" 
+                AllowSorting="true"
+                ColumnWidth="300px">
+    <Columns>
+        <RadzenDataGridColumn TItem="BookDto" Property="Title" Title="Title" Width="160px" />
+        <RadzenDataGridColumn TItem="BookDto" Property="TotalCopies" Title="Total of Copies" Width="80px" />
+        <RadzenDataGridColumn TItem="BookDto" Property="CopiesInUse" Title="Copies In Use" Width="80px" />
+        <RadzenDataGridColumn TItem="BookDto" Property="Isbn" Title="ISBN" Width="100px" />
+        <RadzenDataGridColumn TItem="BookDto" Property="Type" Title="Type" Width="100px" />
+        <RadzenDataGridColumn TItem="BookDto" Property="Category" Title="Category" Width="100px" />
+        <RadzenDataGridColumn TItem="BookDto" Property="Author" Title="Author" Width="160px" />
+    </Columns>
+</RadzenDataGrid>
